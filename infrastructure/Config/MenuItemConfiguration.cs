@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace infrastructure.Config;
 
-public class MealConfiguration : IEntityTypeConfiguration<Meal>
+public class MealConfiguration : IEntityTypeConfiguration<MenuItem>
 {
-    public void Configure(EntityTypeBuilder<Meal> builder)
+    public void Configure(EntityTypeBuilder<MenuItem> builder)
     {
         builder.Property(x => x.Price).HasColumnType("decimal(18,2)");
     }

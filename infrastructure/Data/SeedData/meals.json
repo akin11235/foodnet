@@ -1,0 +1,164 @@
+[
+  {
+    "Name": "Sunset Bruschetta",
+    "Description": "Grilled bread topped with a medley of tomatoes, fresh basil, and balsamic glaze.",
+    "Price": 8,
+    "PictureUrl": "/images/products/sb-ang1.png",
+    "MealType": "Appetizers",
+    "MealTime": "Breakfast",
+    "QuantityInStock": 82
+  },
+  {
+    "Name": "Avocado Spring Rolls",
+    "Description": "rispy spring rolls filled with avocado, sun-dried tomatoes, and cilantro, served with a tamarind-cashew dip. ",
+    "Price": 8,
+    "PictureUrl": "/images/products/sb-ang2.png",
+    "MealType": "Appetizers",
+    "MealTime": "Lunch",
+    "QuantityInStock": 75
+  },
+  {
+    "Name": "Mini Crab Cakes",
+    "Description": "ite-sized crab cakes served with a tangy remoulade sauce.",
+    "Price": 14,
+    "PictureUrl": "/images/products/sb-core1.png",
+    "MealType": "Appetizers",
+    "MealTime": "Breakfast",
+    "QuantityInStock": 3
+  },
+  {
+    "Name": "Chicken Satay",
+    "Description": "Grilled chicken skewers served with a peanut dipping sauce.",
+    "Price": 10,
+    "PictureUrl": "/images/products/sb-core2.png",
+    "MealType": "Appetizers",
+    "MealTime": "Lunch",
+    "QuantityInStock": 52
+  },
+  {
+    "Name": "Harvest Garden Salad",
+    "Description": "Mixed greens with cucumbers, cherry tomatoes, red onions, and croutons, served with your choice of dressing.",
+    "Price": 7,
+    "PictureUrl": "/images/products/sb-react1.png",
+    "MealType": "Salads",
+    "MealTime": "Lunch",
+    "QuantityInStock": 97
+  },
+  {
+    "Name": "Caesar Supreme Salad",
+    "Description": "Crisp romaine lettuce, parmesan cheese, and croutons tossed in a creamy Caesar dressing.",
+    "Price": 9,
+    "PictureUrl": "/images/products/sb-ts1.png",
+    "MealType": "Salads",
+    "MealTime": "Breakfast",
+    "QuantityInStock": 37
+  },
+  {
+    "Name": "Greek Salad",
+    "Description": "Mixed greens with kalamata olives, feta cheese, red onions, and cucumbers, served with a Greek dressing.",
+    "Price": 10,
+    "PictureUrl": "/images/products/hat-core1.png",
+    "MealType": "Salads",
+    "MealTime": "Lunch",
+    "QuantityInStock": 32
+  },
+  {
+    "Name": "Classic Ribeye Steak",
+    "Description": "12 oz. ribeye steak cooked to perfection, served with garlic mashed potatoes and steamed vegetables. ",
+    "Price": 24,
+    "PictureUrl": "/images/products/hat-react1.png",
+    "MealType": "Entrées",
+    "MealTime": "Lunch",
+    "QuantityInStock": 6
+  },
+  {
+    "Name": "Lemon Herb Chicken",
+    "Description": "Grilled chicken breast marinated in lemon and herbs, served with wild rice and sautéed green beans. ",
+    "Price": 18,
+    "PictureUrl": "/images/products/hat-react2.png",
+    "MealType": "Entrées",
+    "MealTime": "Lunch",
+    "QuantityInStock": 17
+  },
+  {
+    "Name": "Pasta Primavera",
+    "Description": "A delightful mix of seasonal vegetables tossed with penne pasta in a light olive oil and garlic sauce.  ",
+    "Price": 16,
+    "PictureUrl": "/images/products/glove-code1.png",
+    "MealType": "Entrées",
+    "MealTime": "Lunch",
+    "QuantityInStock": 74
+  },
+  {
+    "Name": "Grilled Salmon",
+    "Description": "Fresh salmon fillet grilled and served with quinoa and steamed asparagus.  ",
+    "Price": 21,
+    "PictureUrl": "/images/products/glove-code2.png",
+    "MealType": "Entrées",
+    "MealTime": "Dinner",
+    "QuantityInStock": 19
+  },
+  {
+    "Name": "Chicken Alfredo",
+    "Description": "Grilled chicken breast served over fettuccine pasta in a creamy Alfredo sauce.  ",
+    "Price": 17,
+    "PictureUrl": "/images/products/glove-react1.png",
+    "MealType": "Entrées",
+    "MealTime": "Dinner",
+    "QuantityInStock": 77
+  },
+  {
+    "Name": "Chocolate Lava Cake",
+    "Description": "Warm chocolate cake with a molten center, served with vanilla ice cream.",
+    "Price": 7,
+    "PictureUrl": "/images/products/glove-react2.png",
+    "MealType": "Desserts",
+    "MealTime": "Lunch",
+    "QuantityInStock": 45
+  },
+  {
+    "Name": "Tropical Cheesecake",
+    "Description": "Creamy cheesecake topped with a mango-pineapple glaze.",
+    "Price": 6,
+    "PictureUrl": "/images/products/boot-redis1.png",
+    "MealType": "Desserts",
+    "MealTime": "Dinner",
+    "QuantityInStock": 49
+  },
+  {
+    "Name": "Tiramisu",
+    "Description": "Classic Italian dessert with layers of espresso-soaked ladyfingers and mascarpone cheese.",
+    "Price": 8,
+    "PictureUrl": "/images/products/boot-core2.png",
+    "MealType": "Desserts",
+    "MealTime": "Dinner",
+    "QuantityInStock": 28
+  },
+  {
+    "Name": "House Lemonade",
+    "Description": "Freshly squeezed lemonade with a hint of mint.  ",
+    "Price": 3,
+    "PictureUrl": "/images/products/boot-core1.png",
+    "MealType": "Beverages",
+    "MealTime": "Breakfast",
+    "QuantityInStock": 69
+  },
+  {
+    "Name": "Sparkling Mineral Water",
+    "Description": "AChilled sparkling water with a twist of lime.  ",
+    "Price": 2,
+    "PictureUrl": "/images/products/boot-ang2.png",
+    "MealType": "Beverages",
+    "MealTime": "Lunch",
+    "QuantityInStock": 35
+  },
+  {
+    "Name": "Craft Beers",
+    "Description": "A rotating selection of local craft beers.",
+    "Price": 5,
+    "PictureUrl": "/images/products/boot-ang1.png",
+    "MealType": "Beverages",
+    "MealTime": "Dinner",
+    "QuantityInStock": 27
+  }
+]

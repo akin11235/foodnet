@@ -7,7 +7,7 @@ namespace infrastructure.Data;
 
 public class RestaurantContext(DbContextOptions options) : DbContext(options)
 {
-    public DbSet<Meal> Meals { get; set; }
+    public DbSet<MenuItem> MenuItems { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
