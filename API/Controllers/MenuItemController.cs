@@ -1,6 +1,7 @@
 using System;
 using Core.Entities;
 using Core.Interfaces;
+using Core.Specifications;
 using infrastructure.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -8,20 +9,24 @@ using Microsoft.EntityFrameworkCore;
 namespace API.Controllers;
 [ApiController]
 [Route("api/[controller]")]
-public class MenuItemsController(IMenuItemRepository repo) : ControllerBase
+public class MenuItemsController(IGenericRepository<MenuItem> repo) : ControllerBase
 {
 
     [HttpGet]
     public async Task<ActionResult<IReadOnlyList<MenuItem>>> GetMeals(string? mealtime, 
         string? mealtype, string? sort)
     {
-        return Ok(await repo.GetMealsAsync(mealtime, mealtype, sort));
+
+        var spec = new MenuItemSpecification(mealtime, mealtype, sort);
+
+        var meals = await repo.ListAsync(spec);
+        return Ok(meals);
     }
 
     [HttpGet("{id:int}")] //api/meals/2
     public async Task<ActionResult<MenuItem>> GetMeal(int id)
     {
-        var menuItem = await repo.GetMealByIdAsync(id);
+        var menuItem = await repo.GetByIdAsync(id);
         if(menuItem == null) return NotFound();
         return menuItem;
     }
@@ -29,8 +34,8 @@ public class MenuItemsController(IMenuItemRepository repo) : ControllerBase
     [HttpPost]
     public async Task<ActionResult<MenuItem>> CreateMeal(MenuItem menuItem)
     {
-        repo.AddMeal(menuItem);
-        if(await repo.SaveChangesAsync())
+        repo.Add(menuItem);
+        if(await repo.SaveAllAsync())
         {
             return CreatedAtAction("GetMeal", new{id = menuItem.Id}, menuItem);
         }
@@ -43,9 +48,9 @@ public class MenuItemsController(IMenuItemRepository repo) : ControllerBase
         if (menuItem.Id != id || !MealExists(id)) 
         return BadRequest("Cannot update this meal");
 
-        repo.UpdateMeal(menuItem);
+        repo.Update(menuItem);
 
-        if(await repo.SaveChangesAsync())
+        if(await repo.SaveAllAsync())
         {
             return NoContent();
         }
@@ -57,13 +62,13 @@ public class MenuItemsController(IMenuItemRepository repo) : ControllerBase
     [HttpDelete("{id:int}")]
     public async Task<ActionResult> DeleteMeal(int id)
     {
-        var meal = await repo.GetMealByIdAsync(id);
+        var meal = await repo.GetByIdAsync(id);
 
         if(meal == null) return NotFound();
 
-        repo.DeleteMeal(meal);
+        repo.Remove(meal);
 
-        if(await repo.SaveChangesAsync())
+        if(await repo.SaveAllAsync())
         {
             return NoContent();
         }
@@ -74,19 +79,21 @@ public class MenuItemsController(IMenuItemRepository repo) : ControllerBase
     [HttpGet("mealtypes")]
     public async Task<ActionResult<IReadOnlyList<string>>> GetMealTypes()
     {
-        return Ok(await repo.GetMealTypesAsync());
+        var spec = new MealTypeSpecification();
+        
+        return Ok(await repo.ListAsync(spec));
     }
 
     [HttpGet("mealtimes")]
     public async Task<ActionResult<IReadOnlyList<string>>> GetMealTimes()
     {
-        return Ok(await repo.GetMealTimesAsync());
+        var spec = new MealTimeSpecification();
+        
+        return Ok(await repo.ListAsync(spec));
     }
 
     private bool MealExists(int id)
     {
-        return repo.MealExists(id);
+        return repo.Exists(id);
     }
-
-
 }
