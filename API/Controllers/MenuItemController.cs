@@ -1,16 +1,12 @@
-using System;
 using API.RequestHelpers;
 using Core.Entities;
 using Core.Interfaces;
 using Core.Specifications;
-using infrastructure.Data;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers;
-[ApiController]
-[Route("api/[controller]")]
-public class MenuItemsController(IGenericRepository<MenuItem> repo) : ControllerBase
+
+public class MenuItemsController(IGenericRepository<MenuItem> repo) : BaseApiController
 {
 
     [HttpGet]
@@ -20,13 +16,7 @@ public class MenuItemsController(IGenericRepository<MenuItem> repo) : Controller
 
         var spec = new MenuItemSpecification(specParams);
 
-        var meals = await repo.ListAsync(spec);
-
-        var count = await repo.CountAsync(spec);
-
-        var pagination = new Pagination<MenuItem>(specParams.PageIndex, 
-            specParams.PageSize, count, meals);
-        return Ok(pagination);
+        return await CreatePagedResult(repo, spec, specParams.PageIndex, specParams.PageSize);
     }
 
     [HttpGet("{id:int}")] //api/meals/2

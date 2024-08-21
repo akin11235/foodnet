@@ -1,3 +1,4 @@
+using API.Middleware;
 using Core.Entities;
 using Core.Interfaces;
 using infrastructure.Data;
@@ -15,12 +16,17 @@ builder.Services.AddDbContext<RestaurantContext>(opt =>
 builder.Services.AddScoped<IMenuItemRepository, MealRepository>();
 
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+builder.Services.AddCors();
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 
+app.UseMiddleware<ExceptionMiddleware>();
 
+app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod()
+    .WithOrigins("http://localhost:4200", "https://localhost:4200"));
+    
 app.MapControllers();
 
 try
