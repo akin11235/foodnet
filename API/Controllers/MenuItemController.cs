@@ -1,4 +1,5 @@
 using System;
+using API.RequestHelpers;
 using Core.Entities;
 using Core.Interfaces;
 using Core.Specifications;
@@ -13,14 +14,19 @@ public class MenuItemsController(IGenericRepository<MenuItem> repo) : Controller
 {
 
     [HttpGet]
-    public async Task<ActionResult<IReadOnlyList<MenuItem>>> GetMeals(string? mealtime, 
-        string? mealtype, string? sort)
+    public async Task<ActionResult<IReadOnlyList<MenuItem>>> GetMeals(
+        [FromQuery]MenuItemSpecParams specParams)
     {
 
-        var spec = new MenuItemSpecification(mealtime, mealtype, sort);
+        var spec = new MenuItemSpecification(specParams);
 
         var meals = await repo.ListAsync(spec);
-        return Ok(meals);
+
+        var count = await repo.CountAsync(spec);
+
+        var pagination = new Pagination<MenuItem>(specParams.PageIndex, 
+            specParams.PageSize, count, meals);
+        return Ok(pagination);
     }
 
     [HttpGet("{id:int}")] //api/meals/2
