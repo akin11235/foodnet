@@ -1,1 +1,10 @@
-<h1 class="text-3xl font-bold underline">Welcome to {{ title }}</h1>
+<app-header></app-header>
+
+<div class="container mt-6">
+  <h1 class="text-3xl font-bold underline">Welcome to {{ title }}</h1>
+  <ul>
+    @for(menuitem of menuitems; track menuitem.id){
+    <li>{{ menuitem.name }}</li>
+    }
+  </ul>
+</div>
