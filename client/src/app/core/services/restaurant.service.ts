@@ -40,6 +40,10 @@ export class RestaurantService {
     });
   }
 
+  getMenuitem(id: number) {
+    return this.http.get<MenuItem>(this.baseUrl + 'menuitems/' + id);
+  }
+
   getMealTimes() {
     if (this.mealTimes.length > 0) return;
     return this.http

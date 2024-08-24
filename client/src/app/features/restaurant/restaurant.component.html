@@ -1,10 +1,11 @@
+@if(menuitems){
 <div class="flex flex-col gap-3 max-w-screen-md mx-auto">
   <div class="flex justify-between">
     <div class="flex gap-3">
       <mat-paginator
         class="bg-white"
         (page)="handlePageEvent($event)"
-        [length]="menuitems?.count"
+        [length]="menuitems.count"
         [pageSize]="restaurantParams.pageSize"
         [showFirstLastButtons]="true"
         [pageSizeOptions]="pageSizeOptions"
@@ -51,7 +52,7 @@
   </form>
 
   <div class="col-sm-8 grid grid-cols-3 gap-4">
-    @for (menuitem of menuitems?.data; track menuitem.id) {
+    @for (menuitem of menuitems.data; track menuitem.id) {
     <app-menuitem-item [menuitem]="menuitem"></app-menuitem-item>
     }
   </div>
@@ -72,6 +73,7 @@
     }
   </mat-selection-list>
 </mat-menu>
+}
 
 <!-- <div class="flex flex-col gap-3">
   <div class="flex justify-end">

@@ -1,5 +1,9 @@
 @if (menuitem){
-<mat-card appearance="raised">
+<mat-card
+  appearance="raised"
+  routerLink="/restaurant/{{ menuitem.id }}"
+  class="menuitem-card"
+>
   <img src="{{ menuitem.pictureUrl }}" alt="image of {{ menuitem.name }}" />
   <mat-card-content class="mt-2">
     <h2 class="text-sm font-semibold uppercase">{{ menuitem.name }}</h2>

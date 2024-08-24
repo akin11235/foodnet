@@ -33,3 +33,7 @@ button.match-input-height {
   // height: var(--mat-form-field-container-height) !important;
   // height: var(--mat-form-field-container-height);
 }
+
+.mdc-notched-outline__notch {
+  border-right-style: none !important;
+}

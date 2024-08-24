@@ -3,12 +3,22 @@
     class="flex align-middle items-center justify-between max-w-screen-2xl mx-auto"
   >
     <nav class="flex gap-3 my-2 titlecase text-lg">
-      <a>Home</a>
-      <a>Food Menu</a>
+      <a
+        routerLink="/"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >Home</a
+      >
+      <a routerLink="/restaurant" routerLinkActive="active">Food Menu</a>
       <a>Drinks Menu</a>
       <a>Locations</a>
     </nav>
-    <img src="/images/logo.png" alt="app logo" class="max-h-16" />
+    <img
+      routerLink="/"
+      src="/images/logo.png"
+      alt="app logo"
+      class="max-h-16"
+    />
 
     <div class="flex gap-3 align-middle">
       <a matBadge="5" matBadgeSize="large" class="custom-badge mt-3 mr-2">
