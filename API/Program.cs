@@ -2,7 +2,9 @@ using API.Middleware;
 using Core.Entities;
 using Core.Interfaces;
 using infrastructure.Data;
+using infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
+using StackExchange.Redis;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +19,15 @@ builder.Services.AddScoped<IMenuItemRepository, MealRepository>();
 
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 builder.Services.AddCors();
+builder.Services.AddSingleton<IConnectionMultiplexer>(config => 
+{
+    var connString = builder.Configuration.GetConnectionString("Redis") 
+        ?? throw new Exception("Cannot get redis connection string");
+    var Configuration = ConfigurationOptions.Parse(connString, true);
+    return ConnectionMultiplexer.Connect(Configuration);
+});
+
+builder.Services.AddSingleton<ICartService, CartService>();
 
 var app = builder.Build();
 
