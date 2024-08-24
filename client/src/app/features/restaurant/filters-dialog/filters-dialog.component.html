@@ -1,0 +1,27 @@
+<div>
+  <h3 class="text-3xl text-center pt-6 mb-3"></h3>
+  <mat-divider></mat-divider>
+  <div class="flex p-4">
+    <div class="w-1/2">
+      <h4 class="font-semibold text-xl text-primary">Meal Times</h4>
+      <mat-selection-list [(ngModel)]="selectedMealTimes" [multiple]="true">
+        @for (mealtime of restaurantService.mealTimes; track $index) {
+        <mat-list-option [value]="mealtime">{{ mealtime }}</mat-list-option>
+        }
+      </mat-selection-list>
+    </div>
+
+    <div class="w-1/2">
+      <h4 class="font-semibold text-xl text-primary">Meal Times</h4>
+      <mat-selection-list [(ngModel)]="selectedMealTypes" [multiple]="true">
+        @for (mealtype of restaurantService.mealTypes; track $index) {
+        <mat-list-option [value]="mealtype">{{ mealtype }}</mat-list-option>
+        }
+      </mat-selection-list>
+    </div>
+  </div>
+
+  <div class="flex justify-end p-4">
+    <button mat-flat-button (click)="applyFilters()">Apply Filters</button>
+  </div>
+</div>
