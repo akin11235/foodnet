@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { MatButton } from '@angular/material/button';
 import { MatBadge } from '@angular/material/badge';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { CartService } from '../../core/services/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -11,4 +12,6 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
-export class HeaderComponent {}
+export class HeaderComponent {
+  cartService = inject(CartService);
+}

@@ -4,7 +4,7 @@ export type MenuItem = {
   description: string;
   price: number;
   pictureUrl: string;
-  MealType: string;
-  MealTime: string;
+  mealType: string;
+  mealTime: string;
   quantityInStock: number;
 };
