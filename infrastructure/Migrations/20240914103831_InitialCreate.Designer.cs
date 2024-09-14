@@ -11,7 +11,7 @@ using infrastructure.Data;
 namespace infrastructure.Migrations
 {
     [DbContext(typeof(RestaurantContext))]
-    [Migration("20240812171542_InitialCreate")]
+    [Migration("20240914103831_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
