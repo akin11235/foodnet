@@ -19,6 +19,7 @@ builder.Services.AddScoped<IMenuItemRepository, MealRepository>();
 
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 builder.Services.AddCors();
+
 builder.Services.AddSingleton<IConnectionMultiplexer>(config => 
 {
     var connString = builder.Configuration.GetConnectionString("Redis") 

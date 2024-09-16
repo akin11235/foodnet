@@ -36,7 +36,14 @@ public class BuggyController : BaseApiController
     [HttpPost("validationerror")]
     public IActionResult GetValidationError(CreateMenuItemDto menuItem)
     {
-        return Ok();
+        
+         if (!ModelState.IsValid)
+    {
+        // Return validation errors if the model is invalid
+        return BadRequest(ModelState);
+    }
+
+    return Ok();
     }
 
     [Authorize]
